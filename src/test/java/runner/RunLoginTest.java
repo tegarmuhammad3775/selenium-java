@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/loginFeatures",
         glue = "stepDefLogin",
-        tags = "@login_test",
+        tags = "@TDD",
         plugin = {"pretty","html:target/RegressionReport.html"}
 )
 public class RunLoginTest {

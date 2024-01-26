@@ -48,4 +48,42 @@ public class LoginBdd extends env_target{
         );
         driver.quit();
     }
+
+    @Then("User get error message")
+    public void userGetErrorMessage() {
+        Duration duration = Duration.ofSeconds(10);
+        WebDriverWait wait = new WebDriverWait(driver, duration);
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.className("error-button"))
+        );
+        driver.quit();
+    }
+
+    @When("User fill wrong username and password")
+    public void userFillWrongUsernameAndPassword() {
+        driver.findElement(By.name("user-name")).sendKeys("wrong_username");
+        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+    }
+
+    @When("^User input (.*) and (.*)$")
+    public void userInputUsernameAndPassword(String username, String password) {
+        driver.findElement(By.name("user-name")).sendKeys(username);
+        driver.findElement(By.id("password")).sendKeys(password);
+    }
+
+    @Then("^User get verify login (.*)$")
+    public void userGetVerifyLoginResult(String result) {
+        Duration duration = Duration.ofSeconds(10);
+        WebDriverWait wait = new WebDriverWait(driver, duration);
+        if (result.equals("Passed")){
+            wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"inventory_filter_container\"]/div"))
+            );
+        }else if(result.equals("Failed")){
+            wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.className("error-button"))
+            );
+        }
+        driver.quit();
+    }
 }
