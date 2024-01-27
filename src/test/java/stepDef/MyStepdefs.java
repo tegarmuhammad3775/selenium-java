@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.registerPages;
 
 import java.time.Duration;
 import java.util.Random;
@@ -29,8 +30,10 @@ public class MyStepdefs extends env_target{
 
     @When("^User click Register button$")
     public void userClickRegisterButton() {
-       // driver.findElement(By.xpath("//*[@id='loginPanel']/p[2]/a")).click();
-       driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/form/table/tbody/tr[13]/td[2]/input")).click();
+       //driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/form/table/tbody/tr[13]/td[2]/input")).click();
+       registerPages registerPages = new registerPages(driver);
+       registerPages.clickRegister();
+
     }
 
     @When("^User is in register page$")
@@ -103,7 +106,7 @@ public class MyStepdefs extends env_target{
     @And("^User input invalid password confirmation$")
     public void userInputInvalidPasswordConfirmation() {
         //Input invalid password
-        driver.findElement(By.id("repeatedPassword")).sendKeys("11111");
+        driver.findElement(By.id("repeatedPassword")).sendKeys("1");
     }
 
     @Then("^user get error password did not match$")
@@ -119,6 +122,8 @@ public class MyStepdefs extends env_target{
 
     @When("user click Register buttons")
     public void userClickRegisterButtons() {
-        driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/form/table/tbody/tr[13]/td[2]/input")).click();
+        //driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/form/table/tbody/tr[13]/td[2]/input")).click();
+        registerPages registerPages = new registerPages(driver);
+        registerPages.clickRegister();
     }
 }

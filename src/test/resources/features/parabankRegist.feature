@@ -21,7 +21,6 @@
       When User input name
       And User input address detail
       And User fill valid username and password
-      And User input password confirmation
       And User input invalid password confirmation
       When User click Register button
       Then user get error password did not match
