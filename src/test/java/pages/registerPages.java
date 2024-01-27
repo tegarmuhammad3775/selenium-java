@@ -16,7 +16,7 @@ public class registerPages {
     By RegisterButtonTest = By.xpath("//a[contains(@href,'register')]");
 
     //Method click register button
-    public void clickRegister(){
+    public void clickRegisteButton(){
         driver.findElement(RegisterButton).click();
     }
 
