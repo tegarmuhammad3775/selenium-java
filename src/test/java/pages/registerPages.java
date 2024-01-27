@@ -12,12 +12,13 @@ public class registerPages {
     }
 
     //Locator register button
-    By RegisterButton = By.xpath("//*[@id=\"customerForm\"]/table/tbody/tr[13]/td[2]/input");
-    By RegisterButtonTest = By.xpath("//a[contains(@href,'register')]");
+    By firstnameField = By.xpath("//*[@id='customer.firstName']");
+    By lastnameField = By.xpath("//*[@id='customer.lastName']");
 
     //Method click register button
-    public void clickRegisteButton(){
-        driver.findElement(RegisterButton).click();
+    public void inputNameData(String firstname, String lastname){
+        driver.findElement(firstnameField).sendKeys(firstname);
+        driver.findElement(lastnameField).sendKeys(lastname);
     }
 
 

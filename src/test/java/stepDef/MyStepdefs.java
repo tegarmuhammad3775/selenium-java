@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.homePages;
+import pages.registerPages;
 
 import java.time.Duration;
 import java.util.Random;
@@ -48,9 +49,12 @@ public class MyStepdefs extends env_target{
     @Then("^User input name$")
     public void userInputName() {
         //User input first name
-        driver.findElement(By.xpath("//*[@id='customer.firstName']")).sendKeys("Myskill");
+        //driver.findElement(By.xpath("//*[@id='customer.firstName']")).sendKeys("Myskill");
         //User input last name
-        driver.findElement(By.xpath("//*[@id='customer.lastName']")).sendKeys("indo");
+        //driver.findElement(By.xpath("//*[@id='customer.lastName']")).sendKeys("indo");
+
+        registerPages registerPages = new registerPages(driver);
+        registerPages.inputNameData("MySkill","Indo");
     }
 
     @And("^User input address detail$")
