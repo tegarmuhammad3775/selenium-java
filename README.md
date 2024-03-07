@@ -1,5 +1,5 @@
 # Automation Test With Selenium
-Login Automation UI Test with Selenium and Cucumber
+Login Automation UI Test with Selenium and Cucumber Library
 
 **=> How To Use**
 <br> - Open folder in IDE (e.g. IntelliJ)
